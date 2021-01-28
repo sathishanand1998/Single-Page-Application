@@ -1,0 +1,28 @@
+.header {
+    background-color: rgb(40, 40, 43);
+   padding-bottom: 30px  ;
+ 
+}
+
+.input-box-alignment
+{
+    z-index: 40;
+    margin-left: -40px
+   
+}
+.search-box-alignment
+{
+    z-index: 40;
+    margin-right: -40px
+
+}
+.input-alignment
+{
+    
+    padding-right: 30px
+}
+.form
+{
+    border-radius: 15px;
+}
+
