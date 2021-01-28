@@ -26,3 +26,8 @@
     border-radius: 15px;
 }
 
+@media (max-width:600px) { 
+.mobile-custom  {
+    width : 80% !important
+}  
+ }

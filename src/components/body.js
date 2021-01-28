@@ -45,6 +45,8 @@ const Body = (props) => {    //Get postList from postReducer
             //Empty input
             setPostContent("");
             setPostTitle("");
+            props.setnewPostShow(false)
+            props.setViewPostShow(true);
         }
     };
 
@@ -65,7 +67,7 @@ const Body = (props) => {    //Get postList from postReducer
                         />
                         {error["postTitle"] && !postTitle && <p className="text-danger">{error["postTitle"]}</p>}
                     </div>
-                    <div className="form-group">
+                    <div className="form-group bg-color-post">
                         <div className={` ${error[`postContent`] && !postContent && `error-border`}`}>
                             <ReactMde
                                 value={postContent}
@@ -94,7 +96,7 @@ const Body = (props) => {    //Get postList from postReducer
                 <div className="col-md-2"> </div>
             </div>}
 
-            { !props.newpostFlag && <div>
+            { props.viewPostShow && <div>
                 {props.postList && props.postList.length && props.postList.length > 0 ? (
                     <>
                         {props.postList.map((item) => {
@@ -102,8 +104,8 @@ const Body = (props) => {    //Get postList from postReducer
                         })}
                     </>
                 ) : (
-                        <p className="center-align">
-                            You don't have anything to post!!!
+                        <p className="center-align text-center">
+                            You don't have any post to show!!!
                         </p>
                     )}
             </div>}

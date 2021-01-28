@@ -8,7 +8,21 @@ const Header = (props) => {
     const [searchValue, setSearchValue] = useState("");
 
     let showHideNewPost = () => {
-        props.setnewPostShow(!props.newpostFlag)
+
+        props.setnewPostShow(true)
+        props.setViewPostShow(false)
+
+
+    }
+
+
+
+
+    let showHideViewPost = () => {
+        props.setnewPostShow(false)
+        props.setViewPostShow(true)
+
+
     }
     let handleOnChange = (e) => {
         setSearchValue(e.target.value)
@@ -25,6 +39,8 @@ const Header = (props) => {
             }
         })
         props.setmodifiedPostList(newPost)
+        props.setnewPostShow(false)
+        props.setViewPostShow(true)
 
     }
     let clearSearchValue = () => {
@@ -40,7 +56,7 @@ const Header = (props) => {
                     <div className='col-md-12 d-flex justify-content-center'>
                         <div className="input-group w-50 my-3">
                             <button onClick={modifyPostList} Name="btn bg-transparent search-box-alignment" className="searchicon">
-                                <i className="fa fa-search" aria-hidden="true"></i>
+                                <i className="fa fa-search " aria-hidden="true"></i>
                             </button>
                             <input type="text" value={searchValue} onChange={handleOnChange} className="form-control input-alignment" placeholder="    Search..." />
                             <button onClick={clearSearchValue} className="btn bg-transparent input-box-alignment" >
@@ -50,8 +66,8 @@ const Header = (props) => {
                     </div>
                 </div>
                 <div className='row  d-flex justify-content-center' >
-                    <div className="col-md-5"> <button onClick={showHideNewPost} className=' float-right btn btn-secondary w-50'>New Post</button></div>
-                    <div className=" col-md-5 offset-sm-2" > <button onClick={showHideNewPost} className='btn btn-secondary w-50'>Published</button></div>
+                    <div className="col-5"> <button onClick={showHideNewPost} className=' float-right btn btn-secondary w-50  mobile-custom'>New Post</button></div>
+                    <div className=" col-5 offset-2" > <button onClick={showHideViewPost} className='btn btn-secondary w-50  mobile-custom'>Published</button></div>
                 </div>
             </div>
         </>
